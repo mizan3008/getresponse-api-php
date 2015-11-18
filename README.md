@@ -17,6 +17,6 @@ composer require mizanur/getresponse-api-php
 Examples
 --------
 
-comming soon...
+coming soon...
 
 *Note for contributors:* This is not Code Golf.
