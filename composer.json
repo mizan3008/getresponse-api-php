@@ -1,0 +1,25 @@
+{
+    "name": "mizanur/getresponse-api-php",
+    "type": "library",
+	"version": "3.0",
+    "description": "GetResponse API for PHP",
+    "keywords": ["getresponse-api-php"],
+    "homepage": "https://github.com/mizanur-rahman/getresponse-api-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mizanur Rahman",
+			"email" : "mizan3008@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+		"ext-curl": "*"
+    },
+    "autoload": {
+        "psr-0": { "GetResponse": "src/" }
+    },
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
