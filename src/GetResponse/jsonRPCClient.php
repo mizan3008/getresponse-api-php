@@ -134,7 +134,7 @@ class jsonRPCClient
      * @param string $pMethod - A String containing the name of the method to be invoked.
      * @param array  $pParams - An Array of objects to pass as arguments to the method.
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      * @return array
      */
     public function __call($pMethod, $pParams)
@@ -195,7 +195,7 @@ class jsonRPCClient
      *
      * @param string $pRequest
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      * @return string
      */
     protected function & getResponse(&$pRequest)
@@ -204,7 +204,7 @@ class jsonRPCClient
         $ch = curl_init();
         if ( !$ch)
         {
-            throw new RuntimeException('Could\'t initialize a cURL session');
+            throw new \RuntimeException('Could\'t initialize a cURL session');
         }
 
         curl_setopt($ch, CURLOPT_URL, $this->url);
@@ -216,7 +216,7 @@ class jsonRPCClient
 
         if ( !curl_setopt_array($ch, $this->curl_options))
         {
-            throw new RuntimeException('Error while setting curl options');
+            throw new \RuntimeException('Error while setting curl options');
         }
 
         // send the request
@@ -226,12 +226,12 @@ class jsonRPCClient
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if (isset($this->httpErrors[$httpCode]))
         {
-            throw new RuntimeException('Response Http Error - ' . $this->httpErrors[$httpCode]);
+            throw new \RuntimeException('Response Http Error - ' . $this->httpErrors[$httpCode]);
         }
         // check for curl error
         if (0 < curl_errno($ch))
         {
-            throw new RuntimeException('Unable to connect to '.$this->url . ' Error: ' . curl_error($ch));
+            throw new \RuntimeException('Unable to connect to '.$this->url . ' Error: ' . curl_error($ch));
         }
         // close the connection
         curl_close($ch);
@@ -245,13 +245,13 @@ class jsonRPCClient
      * @param bool   $pFailed
      * @param string $pErrMsg
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
     protected function validate($pFailed, $pErrMsg)
     {
         if ($pFailed)
         {
-            throw new RuntimeException($pErrMsg);
+            throw new \RuntimeException($pErrMsg);
         }
     }
 

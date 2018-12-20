@@ -264,6 +264,35 @@ class GetResponse
     }
 
     /**
+     * Return all tags
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->call('tags');
+    }
+
+    /**
+     * get single tag
+     * @param string $tag retrieved using API
+     * @return mixed
+     */
+    public function getTag($tag_id)
+    {
+        return $this->call('tags/' . $tag_id);
+    }
+
+    /**
+     * adding tag
+     * @param $params
+     * @return mixed
+     */
+    public function createTag($params)
+    {
+        return $this->call('tags', 'POST', $params);
+    }
+
+    /**
      * retrieving billing information
      *
      * @return mixed
